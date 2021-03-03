@@ -14,7 +14,11 @@ namespace MVCIntroNa21.Models
         [Display(Name="Förnamn")]
         [StringLength(30, ErrorMessage ="Max 30 tecken")]
         public string Name { get; set; }
+
+        [Range(0, 10000000)]
         public int Salary { get; set; }
+
+        [Range(18, 100)]
         public int Age { get; set; }
         public string Department { get; set; }
     }

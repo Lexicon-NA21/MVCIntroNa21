@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MVCIntroNa21.Data;
 using MVCIntroNa21.Models;
+using MVCIntroNa21.Models.ViewModels;
 
 namespace MVCIntroNa21.Controllers
 {
@@ -20,6 +21,7 @@ namespace MVCIntroNa21.Controllers
         }
 
         // GET: Employees
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Employee.ToListAsync());
@@ -35,6 +37,7 @@ namespace MVCIntroNa21.Controllers
 
             var employee = await _context.Employee
                 .FirstOrDefaultAsync(m => m.Id == id);
+
             if (employee == null)
             {
                 return NotFound();
